@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+cheatsheet.md
+todo.md
+
+# pnpm use early on, not sure if I can delete this
+pnpm-lock.yaml
