@@ -5,7 +5,6 @@ export default function NestedLayout({
 }) {
   return (
     <nav>
-      <h1>new shit</h1>
       {children}
     </nav>
   );

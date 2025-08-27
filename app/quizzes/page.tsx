@@ -1,13 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import postgres from "postgres";
-import QuizForm from "./quiz-form";
 import React, { Suspense } from "react";
+import Link from "next/link";
+
+import postgres from "postgres";
 
 const sql = postgres(process.env.DATABASE_URL!);
 
-async function Quizzes() {
-
+async function QuizzesList() {
   // table inside "neondb" database
   const quizzes = await sql `SELECT * FROM quizzes`;
 
@@ -23,12 +21,12 @@ async function Quizzes() {
   );
 }
 
-export default function Home() {
+export default function Quizzes() {
   return (
     <section>
       <h1 className="text-4xl font-semibold">Quizzes</h1>
       <Suspense fallback={<p style={{fontSize: 20, fontWeight: "bold"}}>Loading page...</p>}>
-        <Quizzes />
+        <QuizzesList />
       </Suspense>
     </section>
   );
