@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
 
@@ -20,19 +21,22 @@ async function Quiz({ id, searchParams }: { id: string, searchParams: { show?: s
   `;  
 
   return (
-    <section>
-      <h1 className="text-2xl font-bold">{answers[0].quiz_title}</h1>
-      <p className="text-2xl">{answers[0].quiz_description}</p>
-      <p className="text-xl my-4">{answers[0].quiz_question}</p>
-      <ul>
-        {answers.map(answer => (
-          <li key={answer.answer_id} className="mt-2">
-            {answer.answer_text}
-            {searchParams.show === "true" && answer.is_correct && ' ✅'}
-          </li>
-        ))}
-      </ul>
-    </section>
+    <div className="border">
+      <section>
+        <h1 className="text-2xl font-bold">{answers[0].quiz_title}</h1>
+        <p className="text-2xl">{answers[0].quiz_description}</p>
+        <p className="text-xl my-4">{answers[0].quiz_question}</p>
+        <ul>
+          {answers.map(answer => (
+            <li key={answer.answer_id} className="mt-2">
+              {answer.answer_text}
+              {searchParams.show === "true" && answer.is_correct && ' ✅'}
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+    
   );
 }
 
@@ -45,12 +49,13 @@ export default function QuizPage(
     searchParams: { show? : string }
   }) {
   return (
-    <section>
-      <Quiz id={params.id} searchParams={searchParams} />
-      <form action={async () => {
-        'use server';
-        redirect(`/quiz/${params.id}?show=true`);
-      }}>
+    <section className="border">
+        <Link href="/" className="underline border">Back to all quizzes</Link>
+        <Quiz id={params.id} searchParams={searchParams} />
+        <form action={async () => {
+          'use server';
+          redirect(`/quiz/${params.id}?show=true`);
+        }}>
         <button 
           style={{marginTop: 20}}
           className="bg-gray-200 p-2 rounded hover:bg-gray-300 transition-all">

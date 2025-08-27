@@ -29,7 +29,6 @@ export default function Home() {
       <h1 className="text-4xl font-semibold">All Quizzes</h1>
       <Suspense fallback={<p style={{fontSize: 50, fontWeight: "bold"}}>Loading page...</p>}>
         <Quizzes />
-        <QuizForm />
       </Suspense>
     </section>
   );
