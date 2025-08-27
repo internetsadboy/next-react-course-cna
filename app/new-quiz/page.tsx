@@ -9,7 +9,6 @@ export default function NestedLayout({
 }) {
   return (
     <div>
-      <Link href="/">Home</Link>
       <Suspense fallback={<p style={{fontSize: 50, fontWeight: "bold"}}>Loading page...</p>}>
         <QuizForm />
       </Suspense>

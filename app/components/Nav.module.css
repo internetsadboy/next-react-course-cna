@@ -1,0 +1,9 @@
+.navItem {
+  cursor: pointer;
+  text-align: left;
+  border: 0px solid black;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}

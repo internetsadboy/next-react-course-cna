@@ -1,0 +1,10 @@
+.quizItem {
+  cursor: pointer;
+  text-align: left;
+  padding: 0.25rem 0.4rem;
+  border: 0px solid black;
+}
+
+.quizItem:hover {
+  text-decoration: underline;
+}

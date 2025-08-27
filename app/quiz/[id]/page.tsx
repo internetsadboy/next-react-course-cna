@@ -21,10 +21,10 @@ async function Quiz({ id, searchParams }: { id: string, searchParams: { show?: s
   `;  
 
   return (
-    <div className="border">
+    <div className="">
       <section>
         <h1 className="text-2xl font-bold">{answers[0].quiz_title}</h1>
-        <p className="text-2xl">{answers[0].quiz_description}</p>
+        <p className="text-md mt-1">{answers[0].quiz_description}</p>
         <p className="text-xl my-4">{answers[0].quiz_question}</p>
         <ul>
           {answers.map(answer => (
@@ -49,8 +49,7 @@ export default function QuizPage(
     searchParams: { show? : string }
   }) {
   return (
-    <section className="border">
-        <Link href="/" className="underline border">Back to all quizzes</Link>
+    <section className="">
         <Quiz id={params.id} searchParams={searchParams} />
         <form action={async () => {
           'use server';
